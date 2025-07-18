@@ -1,4 +1,3 @@
-# pip install pandas nltk pyodbc sqlalchemy
 
 import pandas as pd
 import pyodbc
@@ -14,7 +13,7 @@ def fetch_data_from_sql():
     # Define the connection string with parameters for the database connection
     conn_str = (
         "Driver={SQL Server};"  # Specify the driver for SQL Server
-        "Server=ALI-LT2024\\SQLEXPRESS;"  # Specify your SQL Server instance
+        "Server=LAPTOP-4CS18A8S\\SQLEXPRESS;"  # Specify your SQL Server instance
         "Database=PortfolioProject_MarketingAnalytics;"  # Specify the database name
         "Trusted_Connection=yes;"  # Use Windows Authentication for the connection
     )
@@ -92,8 +91,8 @@ customer_reviews_df['SentimentCategory'] = customer_reviews_df.apply(
 # Apply sentiment bucketing to categorize scores into defined ranges
 customer_reviews_df['SentimentBucket'] = customer_reviews_df['SentimentScore'].apply(sentiment_bucket)
 
-# Display the first few rows of the DataFrame with sentiment scores, categories, and buckets
+# Displaying the first few rows of the DataFrame with sentiment scores, categories, and buckets
 print(customer_reviews_df.head())
 
-# Save the DataFrame with sentiment scores, categories, and buckets to a new CSV file
+# Saving the DataFrame with sentiment scores, categories, and buckets to a new CSV file
 customer_reviews_df.to_csv('fact_customer_reviews_with_sentiment.csv', index=False)
